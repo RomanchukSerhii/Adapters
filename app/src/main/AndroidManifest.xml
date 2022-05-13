@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Adapters">
         <activity
+            android:name=".ArrayAdapterActivity"
+            android:exported="true" />
+        <activity
             android:name=".SimpleAdapterActivity"
             android:exported="true">
             <intent-filter>

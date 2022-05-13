@@ -1,5 +1,6 @@
 package com.example.adapters
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.AdapterView
@@ -14,6 +15,7 @@ class SimpleAdapterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySimpleAdapterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         setupListViewSimple()
     }
 
