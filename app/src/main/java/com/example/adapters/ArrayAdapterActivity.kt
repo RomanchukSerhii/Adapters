@@ -3,6 +3,8 @@ package com.example.adapters
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import com.example.adapters.databinding.ActivityArrayAdapterBinding
@@ -43,6 +45,19 @@ class ArrayAdapterActivity : AppCompatActivity() {
         binding.listView.setOnItemClickListener { parent, view, position, id ->
             adapter.getItem(position)?.let {
                 deleteCharacter(it)
+            }
+        }
+
+        binding.spinner.adapter = adapter
+
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val character = data[position]
+                binding.characterInfoTextView.text = "${character.id}, ${character.name}"
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                binding.characterInfoTextView.text = ""
             }
         }
     }
